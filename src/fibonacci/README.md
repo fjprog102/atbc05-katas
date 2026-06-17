@@ -14,13 +14,13 @@ Implement a generalized Fibonacci generator that supports custom initial values 
 - Output: `55`
 
 - Input: `n=8, startA=2, startB=1` (Fibonacci variant)
-- Output: `34`
+- Output: `47`
 
 - Input: `n=1, startA=5, startB=3`
-- Output: `5`
+- Output: `3`
 
 - Input: `n=2, startA=5, startB=3`
-- Output: `3`
+- Output: `8`
 
 ## Constraints
 
@@ -43,13 +43,13 @@ Implement a generalized Fibonacci generator that supports custom initial values 
 ```typescript
 export class FibonacciGenerator {
   constructor(startA: number, startB: number);
-  
+
   // Iterative approach - for performance
   getNthIterative(n: number): number;
-  
+
   // Recursive with memoization
   getNthRecursive(n: number): number;
-  
+
   // Clear memoization cache
   clearCache(): void;
 }
