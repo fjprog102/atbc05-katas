@@ -11,11 +11,11 @@ A TypeScript project for solving programming kata challenges. Each kata folder c
 
 ## Available Katas
 
-- **`src/fizzbuzz/`** - Classic FizzBuzz problem with conditionals and loops
-- **`src/palindrome/`** - String manipulation and two-pointer technique
-- **`src/fibonacci/`** - Sequence generation and iteration
-- **`src/sum-digits/`** - Number manipulation and arithmetic
-- **`src/array-reversal/`** - Array manipulation and in-place algorithms
+- **`src/fizzbuzz/`** - Parameterized rule processing and composition
+- **`src/palindrome/`** - Dynamic programming with subsequence finding
+- **`src/fibonacci/`** - Memoization and performance optimization
+- **`src/sum-digits/`** - Mathematical optimization and algorithm trade-offs
+- **`src/array-reversal/`** - Multiple algorithmic approaches with complexity analysis
 
 ## Project Structure
 
@@ -52,50 +52,86 @@ src/
 - **`npm run dev`** - Run TypeScript files directly with ts-node
 - **`npm run clean`** - Remove compiled files from `dist/`
 
-## Example Solution
+## Example Solution Structure
 
-For the FizzBuzz kata, your file structure would look like:
+For any kata, your file structure would look like:
 
 ```
 src/fizzbuzz/student1/fizzbuzz.ts
+src/fizzbuzz/student1/fizzbuzz.test.ts
 ```
 
-**src/fizzbuzz/student1/fizzbuzz.ts**
+**src/fizzbuzz/student1/fizzbuzz.ts** - Your implementation file
 ```typescript
-export function fizzBuzz(n: number): string[] {
-  const result: string[] = [];
-  for (let i = 1; i <= n; i++) {
-    if (i % 15 === 0) {
-      result.push('FizzBuzz');
-    } else if (i % 3 === 0) {
-      result.push('Fizz');
-    } else if (i % 5 === 0) {
-      result.push('Buzz');
-    } else {
-      result.push(i.toString());
-    }
-  }
-  return result;
+// Import any interfaces or types from the kata README
+
+export function fizzBuzzExtended(n: number, rules: FizzBuzzRule[]): string[] {
+  // Your solution implementation here
+  // Follow the requirements and constraints from the kata README
 }
 ```
 
-**src/fizzbuzz/student1/fizzbuzz.test.ts**
+**src/fizzbuzz/student1/fizzbuzz.test.ts** - Your test file
 ```typescript
-import { fizzBuzz } from './fizzbuzz';
+import { fizzBuzzExtended } from './fizzbuzz';
 
-describe('fizzBuzz', () => {
-  it('should return correct sequence up to 15', () => {
-    expect(fizzBuzz(15)).toEqual([
-      '1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz',
-      'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz'
-    ]);
+describe('fizzBuzzExtended', () => {
+  it('should pass the examples from the README', () => {
+    const rules = [
+      { divisor: 3, word: 'Fizz' },
+      { divisor: 5, word: 'Buzz' }
+    ];
+    
+    const result = fizzBuzzExtended(15, rules);
+    
+    // Add assertions based on examples in the kata README
+    expect(result).toBeDefined();
+    expect(result.length).toBe(15);
   });
 
-  it('should handle edge cases', () => {
-    expect(fizzBuzz(1)).toEqual(['1']);
-    expect(fizzBuzz(3)).toEqual(['1', '2', 'Fizz']);
+  it('should handle edge cases mentioned in constraints', () => {
+    // Test edge cases from the kata README
   });
 });
 ```
 
 Then run `npm test` to verify your solution passes!
+
+## Manual Verification (Without Tests)
+
+You can also run your implementation directly to verify it works manually:
+
+**Create a runner file: `src/fizzbuzz/student1/run.ts`**
+```typescript
+import { fizzBuzzExtended } from './fizzbuzz';
+
+// Test your implementation manually
+const rules = [
+  { divisor: 3, word: 'Fizz' },
+  { divisor: 5, word: 'Buzz' }
+];
+
+const result = fizzBuzzExtended(15, rules);
+console.log('Result:', result);
+console.log('Element at index 2 (should be Fizz):', result[2]);
+console.log('Element at index 14 (should be FizzBuzz):', result[14]);
+```
+
+**Run it directly with ts-node:**
+```bash
+npx ts-node src/fizzbuzz/student1/run.ts
+```
+
+This approach allows you to:
+- Quickly test your implementation without running the full test suite
+- See console output for debugging
+- Test specific scenarios interactively
+- Verify expected behavior before writing formal tests
+
+## Tips for Implementation
+
+1. Read the kata README carefully - understand all constraints and examples
+2. Start with edge cases and test them first
+3. Run `npm test` frequently to check your progress
+4. Use manual verification with `ts-node` for quick debugging
+5. For complex katas with multiple approaches, implement and test each one separately
