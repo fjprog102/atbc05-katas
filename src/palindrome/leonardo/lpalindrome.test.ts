@@ -4,7 +4,7 @@ import { lpalindrome } from "./lpalindrome"
 
 describe('Testing Palindrome Function', () => {
 
-    it('Should pass example tests', () => {
+    describe('Example tests', () => {
 
         it('Should be defined', () => {
             expect(lpalindrome).toBeDefined();
@@ -46,7 +46,7 @@ describe('Testing Palindrome Function', () => {
         })
     })
 
-    it('Should pass edge cases', () => {
+    describe('Edge cases (constraints)', () => {
         it('Should work with special chars ("@a#b#a@" -> "@a#b#a@")', () => {
             const result = lpalindrome ('@a#b#a@');
 
