@@ -1,6 +1,6 @@
 # TypeScript Kata Exercises
 
-A TypeScript project for solving programming kata challenges.
+A TypeScript project for solving programming kata challenges. Each kata folder contains a README with the problem description and requirements.
 
 ## Setup
 
@@ -9,50 +9,93 @@ A TypeScript project for solving programming kata challenges.
    npm install
    ```
 
-## Scripts
+## Available Katas
 
-- **`npm run build`** - Compile TypeScript to JavaScript (outputs to `dist/`)
-- **`npm run dev`** - Run your code directly with ts-node (no compilation needed)
-- **`npm test`** - Run all tests once
-- **`npm run test:watch`** - Run tests in watch mode (reruns on file changes)
-- **`npm run clean`** - Remove compiled files from `dist/`
+- **`src/fizzbuzz/`** - Classic FizzBuzz problem with conditionals and loops
+- **`src/palindrome/`** - String manipulation and two-pointer technique
+- **`src/fibonacci/`** - Sequence generation and iteration
+- **`src/sum-digits/`** - Number manipulation and arithmetic
+- **`src/array-reversal/`** - Array manipulation and in-place algorithms
 
 ## Project Structure
 
 ```
 src/
-  ├── index.ts          # Main entry point
-  └── __tests__/        # Test files (*.test.ts or *.spec.ts)
+  ├── fizzbuzz/
+  │   ├── README.md              # Problem description
+  │   ├── student1/
+  │   │   ├── fizzbuzz.ts        # Your solution
+  │   │   └── fizzbuzz.test.ts   # Your tests
+  │   └── student2/
+  │       └── ...
+  ├── palindrome/
+  │   ├── README.md
+  │   └── studentX/
+  │       └── ...
+  └── ... (other katas)
 ```
 
 ## Getting Started
 
-1. Create a new TypeScript file in `src/` for your kata
-2. Write your solution
-3. Create a corresponding test file in `src/__tests__/` with the same name + `.test.ts`
-4. Run `npm test` to verify your solution
+1. Choose a kata folder (e.g., `src/fizzbuzz/`)
+2. Read the `README.md` in that folder to understand the problem
+3. Create a folder with your name (e.g., `student1/`)
+4. Create your solution file (e.g., `fizzbuzz.ts`)
+5. Create a test file with the same name + `.test.ts` (e.g., `fizzbuzz.test.ts`)
+6. Run `npm test` to verify your solution
 
-## Example
+## Scripts
 
-To test a kata, create files like:
+- **`npm run build`** - Compile TypeScript to JavaScript (outputs to `dist/`)
+- **`npm test`** - Run all tests across all student solutions
+- **`npm run test:watch`** - Run tests in watch mode (reruns on file changes)
+- **`npm run dev`** - Run TypeScript files directly with ts-node
+- **`npm run clean`** - Remove compiled files from `dist/`
 
-**src/myKata.ts**
+## Example Solution
+
+For the FizzBuzz kata, your file structure would look like:
+
+```
+src/fizzbuzz/student1/fizzbuzz.ts
+```
+
+**src/fizzbuzz/student1/fizzbuzz.ts**
 ```typescript
-export function solve(input: string): string {
-  // Your solution here
-  return input;
+export function fizzBuzz(n: number): string[] {
+  const result: string[] = [];
+  for (let i = 1; i <= n; i++) {
+    if (i % 15 === 0) {
+      result.push('FizzBuzz');
+    } else if (i % 3 === 0) {
+      result.push('Fizz');
+    } else if (i % 5 === 0) {
+      result.push('Buzz');
+    } else {
+      result.push(i.toString());
+    }
+  }
+  return result;
 }
 ```
 
-**src/__tests__/myKata.test.ts**
+**src/fizzbuzz/student1/fizzbuzz.test.ts**
 ```typescript
-import { solve } from '../myKata';
+import { fizzBuzz } from './fizzbuzz';
 
-describe('solve', () => {
-  it('should handle basic input', () => {
-    expect(solve('test')).toBe('expected output');
+describe('fizzBuzz', () => {
+  it('should return correct sequence up to 15', () => {
+    expect(fizzBuzz(15)).toEqual([
+      '1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz',
+      'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz'
+    ]);
+  });
+
+  it('should handle edge cases', () => {
+    expect(fizzBuzz(1)).toEqual(['1']);
+    expect(fizzBuzz(3)).toEqual(['1', '2', 'Fizz']);
   });
 });
 ```
 
-Then run `npm test` to verify!
+Then run `npm test` to verify your solution passes!
