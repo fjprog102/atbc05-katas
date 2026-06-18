@@ -1,0 +1,1 @@
+import { fizBuzzExtended } from "./fizzbuzz";
