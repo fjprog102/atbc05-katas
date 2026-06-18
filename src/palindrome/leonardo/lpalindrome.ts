@@ -1,36 +1,59 @@
 export const lpalindrome = (text: string): string => {
-    const lenght = text.length;
-    const res = '';
+    
+    const removeUniqueNotMiddleChars = (text: string) => {
+        console.log(`==== Original: ${text} ====`);
 
-    // Return first char if there is no repeated chars
-    const onlyDifferent = text
-        .split('')
-        .every((c, _, a) => a.indexOf(c) === a.lastIndexOf(c));
+        if(text.length <= 1) return text[0];
 
-    if(onlyDifferent){
-        return text[0];
+        const unique = (c: string) => text.indexOf(c) === text.lastIndexOf(c);
+
+        const uniqueCharCount = text
+            .split('')
+            .filter(c => unique(c))
+            .length
+
+        if(uniqueCharCount === text.length){
+            console.log(`===== allUnique =${text[0]} ====\n\n`)
+            return text[0];
+        }
+
+        const middle = Math.floor(text.length / 2);
+        const leftLimit = middle-uniqueCharCount;
+        const rightLimit = middle+uniqueCharCount;
+
+        console.log(`Length: ${text.length} | U: ${uniqueCharCount}`)
+        console.log(`M: ${middle} | L: ${leftLimit} | R: ${rightLimit}`);
+
+        const res = text
+            .split('')
+            .filter(c => {
+
+                const inMiddle = text.length % 2 === 0
+                    ? leftLimit < text.indexOf(c) && text.indexOf(c) < rightLimit
+                    : text.indexOf(c) === middle;
+                
+                console.log(`char: ${c} | inmiddle: ${inMiddle}`)
+                return !unique(c) || (unique(c) && inMiddle);
+            })
+            .join('');
+
+        console.log(`===== cleaned=${res} ====\n\n`)
+
+        return res;
     }
 
-    // Remove unique chars except those who are in the middle
-    const uniqueCharCount = text
-        .split('')
-        .filter((c, _, a) => a.indexOf(c) === a.lastIndexOf(c))
-        .length
+    const res = text;
+    const mem: string[] = []
 
-    const withoutUnique = text
-        .split('')
-        .filter((c, _, a) => {
-            const isCharRepeated = a.indexOf(c) !== a.lastIndexOf(c);
-            const isCharInMiddle = lenght % 2 === 0 
-                ? a.indexOf(c) <= Math.floor(lenght/2) + uniqueCharCount && a.indexOf(c) >= Math.floor(lenght/2) - uniqueCharCount
-                : a.indexOf(c) === Math.floor(lenght/2);
+    for(let i=0; i<text.length; i++){
+        for(let j=0; j<i; j++){
+            const currSub = text.substring(j, i+1);
+            const cleanSub = removeUniqueNotMiddleChars(currSub);
+            
+        }
+    }
 
-            return isCharRepeated || (!isCharRepeated && isCharInMiddle)
-        })
-
-        console.log(withoutUnique)
-
-    return ''
+    return res;
 }
-const text = 'bbbab';
+const text = 'character';
 console.log("=================\nResult: ",lpalindrome(text));
