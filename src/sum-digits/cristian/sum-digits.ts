@@ -22,7 +22,13 @@ export class DigitRoot {
   
   // Mathematical formula: O(1) solution using modular arithmetic
   static mathematical(num: number): number{
-    return 0;
+    if(num<0){
+        num = num*(-1);
+    }
+    if (num === 0) {
+      return 0;
+    }
+    return 1 + (num - 1) % 9;
   }
   
   // Track number of iterations (for iterative approach)
