@@ -1,4 +1,3 @@
-
 interface FizzBuzzRule{
     divisor: number;
     word: string;
@@ -13,7 +12,7 @@ export function fizzBuzzExtended(n: number, rules: FizzBuzzRule[]): string[]{
 
         for(const rule of rules)
         {
-            if(i%rule.divisor===0){
+            if(i % rule.divisor === 0){
                 word = word + rule.word;
             }
         }
@@ -26,6 +25,5 @@ export function fizzBuzzExtended(n: number, rules: FizzBuzzRule[]): string[]{
             result.push(String(i));
         }
     }
-
     return result
 }
