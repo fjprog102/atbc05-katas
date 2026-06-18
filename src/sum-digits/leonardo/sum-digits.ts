@@ -1,6 +1,7 @@
 export class DigitRoot {
+
     static iterative(num: number): number {
-        let currNum = num;
+        let currNum = Math.abs(num);
         while(currNum >= 10){
             let sum = currNum
                 .toString()
@@ -12,11 +13,11 @@ export class DigitRoot {
     }
 
     static mathematical(num: number): number {
-        return 1 + (num - 1) % 9;
+        return 1 + (Math.abs(num) - 1) % 9;
     }
 
     static iterativeWithSteps(num: number): {result: number, steps: number} {
-        let currNum = num;
+        let currNum = Math.abs(num);
         let steps = 0;
         while(currNum >= 10){
             let sum = currNum
@@ -29,8 +30,3 @@ export class DigitRoot {
         return {result: currNum, steps};
     }
 }
-
-
-console.log(DigitRoot.iterative(9875));
-console.log(DigitRoot.mathematical(9875));
-console.log(DigitRoot.iterativeWithSteps(9875));
