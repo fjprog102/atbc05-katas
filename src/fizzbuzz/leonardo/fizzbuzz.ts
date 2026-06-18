@@ -19,8 +19,3 @@ export function fizzbuzzExtended(n: number, rules: FizzBuzzRule[]): string[] {
     }
     return res;
 }
-
-console.log(fizzbuzzExtended(20, [
-                {divisor: 2, word: 'Two'},
-                {divisor: 3, word: 'Three'},
-            ]))
