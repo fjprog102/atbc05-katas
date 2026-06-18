@@ -4,10 +4,10 @@ interface FizzBuzzRule{
     word: string;
 }
 
-export function fizBuzzExtended(n: number, rules: FizzBuzzRule[]): string[]{
+export function fizzBuzzExtended(n: number, rules: FizzBuzzRule[]): string[]{
     const result: string[] = [];
     
-    for (let i = 0; i<=n; i++)
+    for (let i = 1; i<=n; i++)
     {
         let word = "";
 
