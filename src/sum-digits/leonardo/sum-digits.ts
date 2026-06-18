@@ -12,12 +12,25 @@ export class DigitRoot {
     }
 
     static mathematical(num: number): number {
-        throw Error('Not implemented')
+        return 1 + (num - 1) % 9;
     }
 
     static iterativeWithSteps(num: number): {result: number, steps: number} {
-        throw Error('Not implemented')
+        let currNum = num;
+        let steps = 0;
+        while(currNum >= 10){
+            let sum = currNum
+                .toString()
+                .split('')
+                .reduce((acc, num) => acc + parseInt(num), 0)
+            currNum = sum;
+            steps ++;
+        }
+        return {result: currNum, steps};
     }
 }
 
-DigitRoot.iterative(9875);
+
+console.log(DigitRoot.iterative(9875));
+console.log(DigitRoot.mathematical(9875));
+console.log(DigitRoot.iterativeWithSteps(9875));
