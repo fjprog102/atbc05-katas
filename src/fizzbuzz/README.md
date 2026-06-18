@@ -10,7 +10,7 @@ Create a parameterized FizzBuzz implementation that accepts custom divisor rules
 - Output: `["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"]`
 
 - Input: `n=20, rules=[{divisor: 2, word: "Two"}, {divisor: 3, word: "Three"}]`
-- Output: `["1", "Two", "Three", "Two", "5", "TwoThree", "7", "Two", "9", "TwoThree", "11", "Two", "13", "TwoThree", "15", "Two", "17", "TwoThree", "19", "Two"]`
+- Output: `["1", "Two", "Three", "Two", "5", "TwoThree", "7", "Two", "Three", "Two", "11", "TwoThree", "13", "Two", "Three", "Two", "17", "TwoThree", "19", "Two"]`
 
 ## Constraints
 

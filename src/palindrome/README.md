@@ -7,7 +7,7 @@ Write a function that finds the longest palindromic subsequence in a given strin
 ## Examples
 
 - Input: "abacabad"
-- Output: `"abaaba"` (length 6)
+- Output: `"abacaba"` (length 7)
 
 - Input: "racecar"
 - Output: `"racecar"` (length 7, the entire string)
