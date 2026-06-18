@@ -30,10 +30,10 @@ describe('Testing FizzBuzz function', () => {
 
             expect(res).toBeDefined();
             expect(res).toEqual<string[]>([
-                '1', 'Two', 'Three', 'Two', '5', 
-                'TwoThree', '7', 'Two', '9', 'TwoThree', 
-                '11', 'Two', '13', 'TwoThree', '15', 'Two', 
-                '17', 'TwoThree', '19', 'Two'
+                "1", "Two", "Three", "Two", "5", 
+                "TwoThree", "7", "Two", "Three", "Two", 
+                "11", "TwoThree", "13", "Two", "Three", 
+                "Two", "17", "TwoThree", "19", "Two"
             ])
         })
     })
@@ -71,7 +71,7 @@ describe('Testing FizzBuzz function', () => {
             expect(res).toBeDefined();
             expect(res).toEqual([
                 '1', 'Three', 'Two',
-                '4', '5', 'ThreeTwo'
+                'Three', '5', 'ThreeTwo'
             ])
         })
 

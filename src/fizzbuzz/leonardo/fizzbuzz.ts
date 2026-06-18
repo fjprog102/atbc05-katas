@@ -4,5 +4,23 @@ interface FizzBuzzRule {
 }
 
 export function fizzbuzzExtended(n: number, rules: FizzBuzzRule[]): string[] {
-    return []
+    const res: string[] = [];
+
+    if(n === 0) return res;
+
+    for(let i=1; i<=n; i++){
+        let text = '';
+        for(const rule of rules){
+            if(i % rule.divisor === 0) text += rule.word;
+        }
+        if(text === '') text = i.toString();
+
+        res.push(text);
+    }
+    return res;
 }
+
+console.log(fizzbuzzExtended(20, [
+                {divisor: 2, word: 'Two'},
+                {divisor: 3, word: 'Three'},
+            ]))
