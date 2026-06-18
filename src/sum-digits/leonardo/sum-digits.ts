@@ -1,6 +1,14 @@
 export class DigitRoot {
     static iterative(num: number): number {
-        throw Error('Not implemented')
+        let currNum = num;
+        while(currNum >= 10){
+            let sum = currNum
+                .toString()
+                .split('')
+                .reduce((acc, num) => acc + parseInt(num), 0)
+            currNum = sum;
+        }
+        return currNum;
     }
 
     static mathematical(num: number): number {
@@ -11,3 +19,5 @@ export class DigitRoot {
         throw Error('Not implemented')
     }
 }
+
+DigitRoot.iterative(9875);
