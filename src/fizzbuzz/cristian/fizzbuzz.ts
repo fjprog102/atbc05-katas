@@ -6,7 +6,7 @@ interface FizzBuzzRule{
 export function fizzBuzzExtended(n: number, rules: FizzBuzzRule[]): string[]{
     const result: string[] = [];
     
-    for (let i = 1; i<=n; i++)
+    for (let i = 1; i <= n; i++)
     {
         let word = "";
 
