@@ -1,0 +1,53 @@
+import { ArrayRotation } from './array-reversal';
+
+describe('Brute force method for array reversal', () => {
+    it('1. Should return the array rotated two positions to the right when array length is 5 and k=2', () => {
+        const testArray = [1, 2, 3, 4, 5];
+        const k = 2;
+        const expectedResult = [4, 5, 1, 2, 3];
+        const actualResult = ArrayRotation.bruteForce(testArray, k);
+        expect(actualResult).toEqual(expectedResult);
+    });
+    it('2. Should return the array rotated two positions to the right when array length is 5 and k=7', () => {
+        const testArray = [1, 2, 3, 4, 5];
+        const k = 7;
+        const expectedResult = [4, 5, 1, 2, 3];
+        const actualResult = ArrayRotation.bruteForce(testArray, k);
+        expect(actualResult).toEqual(expectedResult);
+    });
+    it('3. Should return the array rotated two positions to the left when array length is 5 and k=-2', () => {
+        const testArray = [1, 2, 3, 4, 5];
+        const k = -2;
+        const expectedResult = [3, 4, 5, 1, 2];
+        const actualResult = ArrayRotation.bruteForce(testArray, k);
+        expect(actualResult).toEqual(expectedResult);
+    });
+    it('4. Should return the array rotated two positions to the left when array length is 5 and k=-7', () => {
+        const testArray = [1, 2, 3, 4, 5];
+        const k = -7;
+        const expectedResult = [3, 4, 5, 1, 2];
+        const actualResult = ArrayRotation.bruteForce(testArray, k);
+        expect(actualResult).toEqual(expectedResult);
+    });
+    it('5. Should return the array without changes when array length is 5 and k=0', () => {
+        const testArray = [1, 2, 3, 4, 5];
+        const k = 0;
+        const expectedResult = [1, 2, 3, 4, 5];
+        const actualResult = ArrayRotation.bruteForce(testArray, k);
+        expect(actualResult).toEqual(expectedResult);
+    });
+    it('6. Should return the array without changes when array length is 0 and k=2', () => {
+        const testArray: number[] = [];
+        const k = 2;
+        const expectedResult: number[] = [];
+        const actualResult = ArrayRotation.bruteForce(testArray, k);
+        expect(actualResult).toEqual(expectedResult);
+    });
+        it('7. Should return the array without changes when array length is 1 and k=2', () => {
+        const testArray = [1];
+        const k = 2;
+        const expectedResult = [1];
+        const actualResult = ArrayRotation.bruteForce(testArray, k);
+        expect(actualResult).toEqual(expectedResult);
+    });
+});
