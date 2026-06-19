@@ -93,4 +93,11 @@ describe('Iterative method with steps for sum-digits', () => {
         expect(actualResult.result).toBe(expectedResult);
         expect(actualResult.steps).toBe(2);
     });
+    it('3. Should return the sum of digits for a positive number with only one digit and 0 step', () => {
+        const number = 5;
+        const expectedResult = 5;
+        const actualResult = DigitRoot.iterativeWithSteps(number);
+        expect(actualResult.result).toBe(expectedResult);
+        expect(actualResult.steps).toBe(0);
+    });
 });
