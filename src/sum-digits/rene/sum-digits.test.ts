@@ -70,4 +70,10 @@ describe('Mathematical method for sum-digits', () => {
         const actualResult = DigitRoot.mathematical(number);
         expect(actualResult).toBe(expectedResult);
     });
+    it('6. Should return the sum of digits for a positive large number', () => {
+        const number = 987654321;
+        const expectedResult = 9;
+        const actualResult = DigitRoot.mathematical(number);
+        expect(actualResult).toBe(expectedResult);
+    });
 });
