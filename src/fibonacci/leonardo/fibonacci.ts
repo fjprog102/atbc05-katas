@@ -1,6 +1,7 @@
 export class FibonacciGenerator {
     private _startA: number;
     private _startB: number;
+    private _cache: Map<number, number> = new Map();
 
     constructor(startA: number, startB: number) {
         this._startA = startA;
@@ -8,7 +9,7 @@ export class FibonacciGenerator {
     }
 
     getNthIterative(n: number): number {
-        if(n === 0) return this._startA;
+        if(n <= 0) return this._startA;
         if(n === 1) return this._startB;
 
         for(let i=1; i<n; i++){
@@ -21,10 +22,23 @@ export class FibonacciGenerator {
     }
 
     getNthRecursive(n: number): number {
-        throw Error('Not implemented');
+        if(n <= 0) return this._startA;
+        if(n === 1) return this._startB;
+
+        const inMemo = this._cache.has(n);
+
+        if(inMemo){
+            return this._cache.get(n)!;
+        }
+
+        const newVal = this.getNthRecursive(n - 2) + this.getNthRecursive(n - 1);
+
+        this._cache.set(n, newVal);
+
+        return newVal;
     }
 
     clearCache(): void {
-        throw Error('Not implemented')
+        this._cache = new Map();
     }
 }
