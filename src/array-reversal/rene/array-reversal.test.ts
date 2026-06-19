@@ -43,4 +43,11 @@ describe('Brute force method for array reversal', () => {
         const actualResult = ArrayRotation.bruteForce(testArray, k);
         expect(actualResult).toEqual(expectedResult);
     });
+        it('7. Should return the array without changes when array length is 1 and k=2', () => {
+        const testArray = [1];
+        const k = 2;
+        const expectedResult = [1];
+        const actualResult = ArrayRotation.bruteForce(testArray, k);
+        expect(actualResult).toEqual(expectedResult);
+    });
 });
