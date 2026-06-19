@@ -32,10 +32,7 @@ export class DigitRoot {
       return 0;
     }
 
-    while (n > 0){
-      return 1 + (n - 1) % 9;
-    }
-
+    return 1 + (n - 1) % 9;
   }
 
   // Track number of iterations (for iterative approach)
@@ -63,7 +60,7 @@ export class DigitRoot {
   }
 }
 
-
+/*
 console.log(DigitRoot.iterative(38));                 // Output: 2
 console.log(DigitRoot.mathematical(38));              // Output: 2
 console.log(DigitRoot.iterativeWithSteps(38));       // Output: { result: 2, steps: 2 }
@@ -82,4 +79,4 @@ console.log(DigitRoot.iterativeWithSteps(0));       // Output: { result: 0, step
 
 console.log(DigitRoot.iterative(-38));                 // Output: 2
 console.log(DigitRoot.mathematical(-38));              // Output: 2
-console.log(DigitRoot.iterativeWithSteps(-38));       // Output: { result: 2, steps: 2 }
+console.log(DigitRoot.iterativeWithSteps(-38));       // Output: { result: 2, steps: 2 }*/
