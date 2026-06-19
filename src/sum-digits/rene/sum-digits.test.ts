@@ -19,4 +19,10 @@ describe('Iterative method for sum-digits', () => {
         const actualResult = DigitRoot.iterative(number);
         expect(actualResult).toBe(expectedResult);
     });
+    it('Should return the sum of digits for 0', () => {
+        const number = 0;
+        const expectedResult = 0;
+        const actualResult = DigitRoot.iterative(number);
+        expect(actualResult).toBe(expectedResult);
+    });
 });
