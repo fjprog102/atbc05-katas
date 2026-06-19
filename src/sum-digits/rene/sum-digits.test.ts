@@ -77,3 +77,13 @@ describe('Mathematical method for sum-digits', () => {
         expect(actualResult).toBe(expectedResult);
     });
 });
+
+describe('Iterative method with steps for sum-digits', () => {
+    it('1. Should return the sum of digits for a positive number with 2 iterations and 2 steps', () => {
+        const number = 98;
+        const expectedResult = 8;
+        const actualResult = DigitRoot.iterativeWithSteps(number);
+        expect(actualResult.result).toBe(expectedResult);
+        expect(actualResult.steps).toBe(2);
+    });
+});
