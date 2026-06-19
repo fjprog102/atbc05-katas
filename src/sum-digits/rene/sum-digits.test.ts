@@ -52,4 +52,10 @@ describe('Mathematical method for sum-digits', () => {
         const actualResult = DigitRoot.mathematical(number);
         expect(actualResult).toBe(expectedResult);
     });
+    it('3. Should return the sum of digits for a positive number with only one digit', () => {
+        const number = 5;
+        const expectedResult = 5;
+        const actualResult = DigitRoot.mathematical(number);
+        expect(actualResult).toBe(expectedResult);
+    });
 });
