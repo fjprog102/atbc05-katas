@@ -46,4 +46,10 @@ describe('Mathematical method for sum-digits', () => {
         const actualResult = DigitRoot.mathematical(number);
         expect(actualResult).toBe(expectedResult);
     });
+    it('2. Should return the sum of digits for a negative number with 2 iterations', () => {
+        const number = -38;
+        const expectedResult = 2;
+        const actualResult = DigitRoot.mathematical(number);
+        expect(actualResult).toBe(expectedResult);
+    });
 });
