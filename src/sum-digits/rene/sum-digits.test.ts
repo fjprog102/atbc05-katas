@@ -38,3 +38,12 @@ describe('Iterative method for sum-digits', () => {
         expect(actualResult).toBe(expectedResult);
     });
 });
+
+describe('Mathematical method for sum-digits', () => {
+    it('1. Should return the sum of digits for a positive number with 2 iterations', () => {
+        const number = 38;
+        const expectedResult = 2;
+        const actualResult = DigitRoot.mathematical(number);
+        expect(actualResult).toBe(expectedResult);
+    });
+});
