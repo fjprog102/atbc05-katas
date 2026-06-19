@@ -114,4 +114,11 @@ describe('Iterative method with steps for sum-digits', () => {
         expect(actualResult.result).toBe(expectedResult);
         expect(actualResult.steps).toBe(1);
     });
+    it('6. Should return the sum of digits for a positive large number with 1 iteration and 1 step', () => {
+        const number = 987654321;
+        const expectedResult = 9;
+        const actualResult = DigitRoot.iterativeWithSteps(number);
+        expect(actualResult.result).toBe(expectedResult);
+        expect(actualResult.steps).toBe(2);
+    });
 });
