@@ -107,4 +107,11 @@ describe('Iterative method with steps for sum-digits', () => {
         expect(actualResult.result).toBe(expectedResult);
         expect(actualResult.steps).toBe(0);
     });
+    it('5. Should return the sum of digits for a positive number with 1 iteration and 1 step', () => {
+        const number = 104;
+        const expectedResult = 5;
+        const actualResult = DigitRoot.iterativeWithSteps(number);
+        expect(actualResult.result).toBe(expectedResult);
+        expect(actualResult.steps).toBe(1);
+    });
 });
